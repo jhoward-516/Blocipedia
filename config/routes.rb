@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   
   resources :wikis
   
-  root 'wikis#index'
+  root 'welcome#index'
 end
