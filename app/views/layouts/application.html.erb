@@ -12,12 +12,11 @@
     <div class="container-fluid">
       <div class="navbar-header navbar-right">
         <% if user_signed_in? %>
-          <p class ="navbar-text">Signed in as: <strong><%= current_user.email %></strong>
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-default navbar-btn' %>
+          <p class ="navbar-text">Signed in as: <strong><%= current_user.email %> <%=current_user.role %> account</strong>
+          <%= link_to 'Profile', edit_user_registration_path, :class => 'btn btn-default navbar-btn' %>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'btn btn-default navbar-btn'  %>
           </p>
         <% else %>
-          <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-default navbar-btn'  %>
           <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-default navbar-btn'  %>
         <% end %>
       </div>
