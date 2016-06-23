@@ -7,11 +7,13 @@ class ApplicationController < ActionController::Base
     wikis_path
   end
   
- def set_stripe_btn
+ def set_stripe_btn 
+    if current_user
     @stripe_btn_data = {
      key: "#{ Rails.configuration.stripe[:publishable_key] }",
      description: "Premium Membership - #{current_user.email}",
      amount: 1500
     }
+    end
  end
 end
