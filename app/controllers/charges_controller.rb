@@ -19,12 +19,8 @@ def create
 end
 
 def unsubscribe
-    customer = Stripe::Customer.retrieve(current_user.stripe_id)
-  
     
-    Stripe::Subscription.retrieve(customer.subscriptions.data.first.id).delete if customer.subscriptions.data.first
-    
-    current_user.standard!
+    current_user.downgrade
     
     flash[:alert] = "Sorry to see you go, #{current_user.email}! Please come back again."
     redirect_to wikis_path(current_user)

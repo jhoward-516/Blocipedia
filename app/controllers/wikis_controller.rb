@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @wikis = Wiki.visible_to(current_user)
+    @wikis = Wiki.all
   end
 
   def show
@@ -16,6 +16,7 @@ class WikisController < ApplicationController
   
   def create
     @wiki = Wiki.new(wiki_params)
+    @wiki.user = current_user
     
     if @wiki.save
        flash[:notice] = "Wiki was saved successfully."
