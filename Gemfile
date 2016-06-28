@@ -23,6 +23,8 @@
  gem 'devise'
  gem 'pundit'
  gem 'stripe'
+ gem 'redactor-rails'
+ gem 'redcarpet'
 
  group :development, :test do
    gem 'byebug'

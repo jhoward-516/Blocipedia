@@ -5,7 +5,7 @@
    </div>
    <div class="form-group">
      <%= f.label :body %>
-     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter Wiki body" %>
+     <%= f.text_area :body, rows: 8, class: 'form-control', id: 'redactor-body'%>
    </div>
    <% if current_user.admin? || current_user.premium? %>
      <div class="form-group">
@@ -18,3 +18,7 @@
      <%= f.submit "Save", class: 'btn btn-default' %>
    </div>
  <% end %>
+ 
+<script>
+    $('#redactor-body').redactor();
+</script>   
