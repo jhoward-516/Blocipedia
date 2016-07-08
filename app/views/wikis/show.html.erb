@@ -1,2 +1,2 @@
  <h1><%= @wiki.title %></h1>
-<%= markdown(@wiki.body) %>
+<%= @wiki.body.html_safe %>
